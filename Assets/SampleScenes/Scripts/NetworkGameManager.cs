@@ -168,6 +168,7 @@ public class NetworkGameManager : NetworkBehaviour
         }
 
         hud.SetTime(Mathf.Clamp(remainingTime, 0f, timeLimit));
+        hud.SetLevel();
     }
 
     //テスト用
