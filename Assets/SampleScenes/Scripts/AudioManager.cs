@@ -19,7 +19,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     //同時にならせるseの最大数
     public int MaxSE = 10;
 
-    private AudioSource bgmSource = null;
+    private List<AudioSource> bgmSource = null;
     private List<AudioSource> seSources = null;
 
     private Dictionary<string, AudioClip> bgmDict = null;
@@ -41,7 +41,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             this.gameObject.AddComponent<AudioListener>();
         }
         //create audio sources
-        this.bgmSource = this.gameObject.AddComponent<AudioSource>();
+        this.bgmSource = new List<AudioSource>();
         this.seSources = new List<AudioSource>();
 
         //create clip dictionaries
@@ -91,16 +91,50 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public void PlayBGM(string bgmName)
     {
         if (!this.bgmDict.ContainsKey(bgmName)) throw new ArgumentException(bgmName + " not found", "bgmName");
-        if (this.bgmSource.clip == this.bgmDict[bgmName]) return;
-        this.bgmSource.Stop();
-        this.bgmSource.clip = this.bgmDict[bgmName];
-        this.bgmSource.Play();
+        AudioSource source = this.bgmSource.FirstOrDefault(s => !s.isPlaying);
+        if (source == null)
+        {
+            source = this.gameObject.AddComponent<AudioSource>();
+            this.bgmSource.Add(source);
+        }
+        source.clip = this.bgmDict[bgmName];
+        //るーーーぷ
+        source.loop = true;
+        source.Play();
+       
     }
 
     //BGMを止める
     public void StopBGM()
     {
-        this.bgmSource.Stop();
-        this.bgmSource.clip = null;
+        this.bgmSource.ForEach(s => s.Stop());
     }
+
+    //bgmのボリューム変更
+    //ネームは意味ないお
+    //引数volumeの値は0f～100fの間
+    public void BgmVolumeSet(string BGMname,float volume)
+    {
+        //if(this.bgmDict[BGMname] == this.bgmSource.FirstOrDefault(s => !s.isPlaying))
+        //{
+        if(volume > 100)
+        {
+            return;
+        }
+        this.bgmSource.ForEach(s => s.volume = volume/100f);
+        //}
+    }
+
+    public void SEVolumeSet(string SEname, float volume)
+    {
+        //if(this.bgmDict[BGMname] == this.bgmSource.FirstOrDefault(s => !s.isPlaying))
+        //{
+        if (volume > 100)
+        {
+            return;
+        }
+        this.seSources.ForEach(s => s.volume = volume / 100f);
+        //}
+    }
+
 }
