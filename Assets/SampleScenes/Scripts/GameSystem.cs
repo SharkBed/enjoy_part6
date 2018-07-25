@@ -10,6 +10,10 @@ public class GameSystem : MonoBehaviour
         AudioManager.Instance.PlayBGM("Title");
     }
 
+    public void Update()
+    {
+    }
+
     //　スタートボタンを押したら実行する
     public void GameStart()
     {
