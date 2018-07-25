@@ -88,7 +88,6 @@ namespace Prototype.NetworkLobby
         public override void OnLobbyClientSceneChanged(NetworkConnection conn)
         {
 
-
             if (SceneManager.GetSceneAt(0).name == lobbyScene)
             {
                 if (topPanel.isInGame)
