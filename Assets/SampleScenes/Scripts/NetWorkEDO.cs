@@ -162,7 +162,7 @@ public class NetWorkEDO : NetworkBehaviour
             kusomuzu_flg = false;
         }
 
-        if(_level == LEVEL.LV_NORMAL) {
+        if (_level == LEVEL.LV_NORMAL) {
             if (getStar >= 8) {
                 e.Notification();
             }
