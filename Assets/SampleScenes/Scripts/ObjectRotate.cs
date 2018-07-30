@@ -6,13 +6,17 @@ public class ObjectRotate : MonoBehaviour {
     Transform p;
     bool isGet = false;
     int timer = 0;
-   NetWorkEDO ideo;
+    NetWorkEDO ideo;
     SeachPlayer dr;
+    public AudioSource se;
+    LEVEL _level;
     // Use this for initialization
     void Start () {
         p = GameObject.Find("PlayerLOD0 5(Clone)").GetComponent<Transform>();
         ideo = GameObject.Find("PlayerLOD0 5(Clone)").GetComponent<NetWorkEDO>();
         dr = GameObject.Find("Dragon").GetComponent<SeachPlayer>();
+        _level = Prototype.NetworkLobby.LobbyMainMenu.ReturnLevel();
+        se = GetComponent<AudioSource>();
 
     }
 	
@@ -24,9 +28,12 @@ public class ObjectRotate : MonoBehaviour {
         float mag = v.magnitude;
 
         if ((!isGet) && (mag <= 2.5f)) {
+            se.mute = false;
+            se.Play();
             ideo.StarIncrement();
             dr.Notification();
             isGet = true;
+            
         }
 
         if (isGet) {
@@ -38,6 +45,7 @@ public class ObjectRotate : MonoBehaviour {
                 Destroy(this);
                 return;
             }
+            
         }
     }
 }

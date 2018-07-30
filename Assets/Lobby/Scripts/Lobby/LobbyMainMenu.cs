@@ -54,6 +54,11 @@ namespace Prototype.NetworkLobby
             s_level = LEVEL.LV_SUPER;
             lobbyManager.StartHost();
         }
+        public void OnClickHostNightMare()
+        {
+            s_level = LEVEL.LV_NIGHTMARE;
+            lobbyManager.StartHost();
+        }
 
         public void OnClickJoin()
         {

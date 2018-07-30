@@ -21,6 +21,7 @@ public class NetWorkEDO : NetworkBehaviour
     public Slider stamina;
     public int hp;
     public int getStar = 0;
+    private float angle;
     GateOpen g1, g2;
     private float speedScale = 1.0f;
     bool kusomuzu_flg = false;
@@ -78,8 +79,14 @@ public class NetWorkEDO : NetworkBehaviour
         if (!hasAuthority)
             return;
 
-        if (hp == 0)
+        if (hp <= 0) {
+            e.PlayerDead();
+            if(angle <= 90.0f) {
+                angle += 1.0f;
+                player.transform.Rotate(new Vector3(0, 0, 1));
+            }
             return;
+        }
 
         speedScale = 1.0f;
         waitTime++;
@@ -161,7 +168,7 @@ public class NetWorkEDO : NetworkBehaviour
             e.Notification();
             kusomuzu_flg = false;
         }
-
+        
         if (_level == LEVEL.LV_NORMAL) {
             if (getStar >= 8) {
                 e.Notification();
@@ -177,7 +184,9 @@ public class NetWorkEDO : NetworkBehaviour
                 e.Notification();
             }
         }
-        
+        if (_level == LEVEL.LV_NIGHTMARE) {
+            e.Notification();
+        }
 
         // いずれかの方向に移動している場合
         if (velocity.magnitude > 0)
@@ -212,6 +221,11 @@ public class NetWorkEDO : NetworkBehaviour
                 break;
             case LEVEL.LV_SUPER:
                 if (getStar != 12) {
+                    return;
+                }
+                break;
+            case LEVEL.LV_NIGHTMARE:
+                if (getStar != 6) {
                     return;
                 }
                 break;

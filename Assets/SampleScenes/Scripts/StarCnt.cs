@@ -34,6 +34,9 @@ public class StarCnt : MonoBehaviour {
             case LEVEL.LV_SUPER:
                 star = 12 - ideo.getStar;
                 break;
+            case LEVEL.LV_NIGHTMARE:
+                star = 6 - ideo.getStar;
+                break;
             case LEVEL.LV_NON:
                 break;
         }

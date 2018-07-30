@@ -15,7 +15,7 @@ public class NetworkGameManager : NetworkBehaviour
 
     public Hud hud;
 
-    public const int timeLimit = 60 * 15;//5分
+    public const int timeLimit = 60 * 10;//10分
 
     public GameObject uiScoreZone;
     public Font uiScoreFont;

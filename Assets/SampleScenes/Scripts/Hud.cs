@@ -52,7 +52,7 @@ public class Hud : MonoBehaviour
                 leveltext.text = "\nEASY";
                 break;
             case LEVEL.LV_NORMAL:
-                leveltext.color = Color.white;
+                leveltext.color = Color.yellow;
                 leveltext.text = "\nNORMAL";
                 break;
             case LEVEL.LV_HARD:
@@ -62,6 +62,10 @@ public class Hud : MonoBehaviour
             case LEVEL.LV_SUPER:
                 leveltext.color = Color.magenta;
                 leveltext.text = "\nVERY HARD";
+                break;
+            case LEVEL.LV_NIGHTMARE:
+                leveltext.color = Color.white;
+                leveltext.text = "\nNIGHTMARE";
                 break;
             default:
                 break;
