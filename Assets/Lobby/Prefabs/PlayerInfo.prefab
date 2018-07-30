@@ -706,10 +706,10 @@ MonoBehaviour:
   - {fileID: 1148021737484336, guid: 23d5a0086049fae478194fb7d3dadb2a, type: 2}
   - {fileID: 1491130841718766, guid: bccb3bf1938d6e24ea314499c1b032b1, type: 2}
   - {fileID: 1786372872974406, guid: 2f8e046efcbc8e94885b8bf90d49c1ae, type: 2}
-  - {fileID: 1549348441200900, guid: 0f7409aba45dc954791387f77943e2b0, type: 2}
+  - {fileID: 0}
   colorButton: {fileID: 114158419218037776}
   charctorButton: {fileID: 114535552598732154}
-  face1: {fileID: 21300000, guid: cf8f9fdc2ad2f524c8e0c752f1633eab, type: 3}
+  face1: {fileID: 21300000, guid: 53b901ca6a6d0d042a48331b1c2d88da, type: 3}
   face2: {fileID: 21300000, guid: 52c4fe9196a210840a79476f15732be6, type: 3}
   face3: {fileID: 21300000, guid: d8718b291e0729a458e2d33edb8563ec, type: 3}
   face4: {fileID: 21300000, guid: 3c9d4f5d5048c69488c7221386a4c7b2, type: 3}

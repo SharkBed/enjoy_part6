@@ -26,6 +26,7 @@ public class NetWorkEDO : NetworkBehaviour
     private float speedScale = 1.0f;
     bool kusomuzu_flg = false;
     public GameObject hitEffect;
+    public GameObject DustEffect;
 
     [SyncVar(hook = "OnScoreChanged")]
     public int score = 0;
@@ -74,7 +75,6 @@ public class NetWorkEDO : NetworkBehaviour
     [ClientCallback]
     void FixedUpdate()
     {
-        
 
         if (!hasAuthority)
             return;
@@ -92,23 +92,32 @@ public class NetWorkEDO : NetworkBehaviour
         waitTime++;
         velocity = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) {
+            DustEffect.SetActive(true);
             waitTime = 0;
             velocity.z += .2f;
         }
         if (Input.GetKey(KeyCode.A)) {
+            DustEffect.SetActive(true);
             waitTime = 0;
             velocity.x -= .2f;
         }
         if (Input.GetKey(KeyCode.S)) {
+            DustEffect.SetActive(true);
             waitTime = 0;
             velocity.z -= .2f;
         }
         if (Input.GetKey(KeyCode.D)) {
+            DustEffect.SetActive(true);
             waitTime = 0;
             velocity.x += .2f;
         }
 
-        if(waitTime == 500) {
+        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A)&& !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+        {
+            DustEffect.SetActive(false);
+        }
+
+        if (waitTime == 500) {
 
             e.Notification();
         }
