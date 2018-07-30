@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using Prototype.NetworkLobby;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 //ゲーム時間の同期処理やUI表示
 
@@ -134,6 +135,7 @@ public class NetworkGameManager : NetworkBehaviour
             {
                 timeUpStarted = true;
                 _running = false;
+               
                 StartCoroutine(ReturnToLoby());
             }
 
@@ -142,6 +144,7 @@ public class NetworkGameManager : NetworkBehaviour
                 if(nEDO[i].hp ==0) 
                 {
                     _running = false;
+                    
                     StartCoroutine(ReturnToLoby());
                 }
            }   
@@ -216,13 +219,23 @@ public class NetworkGameManager : NetworkBehaviour
 
     //ロビーに帰ります
     //タイムアップか死ぬかゴールするか
-    IEnumerator ReturnToLoby()
+    public IEnumerator ReturnToLoby()
     {
         if (isServer)
         {
             ClearChackScript.s_instance.ClearFlag = false;
             yield return new WaitForSeconds(3.0f);
-            LobbyManager.s_Singleton.ServerReturnToLobby();
+            //クリアなら
+            if (ClearChackScript.s_instance.IsClear())
+            {
+                SceneManager.LoadScene("result");
+            }
+            else
+            {
+                SceneManager.LoadScene("result2");
+            }
+
+            //LobbyManager.s_Singleton.ServerReturnToLobby();
         }
     }
 

@@ -35,6 +35,10 @@ public class ObjectRotate2 : MonoBehaviour
         if ((!isGet) && (mag <= 2.5f)) {
             se.mute = false;
             se.Play();
+
+            //回復エフェクト
+            ideo.RecoveryHit();
+
             if (_level == LEVEL.LV_HARD || _level == LEVEL.LV_SUPER || _level == LEVEL.LV_NIGHTMARE) {
                 ideo.hp += 20;
                 if(ideo.hp > 100) {

@@ -27,6 +27,7 @@ public class NetWorkEDO : NetworkBehaviour
     bool kusomuzu_flg = false;
     public GameObject hitEffect;
     public GameObject DustEffect;
+    public GameObject RecoveryEffect;
 
     [SyncVar(hook = "OnScoreChanged")]
     public int score = 0;
@@ -61,6 +62,8 @@ public class NetWorkEDO : NetworkBehaviour
         e = GameObject.Find("Dragon").GetComponent<SeachPlayer>();
         g1 = GameObject.Find("GATE01").GetComponent<GateOpen>();
         g2 = GameObject.Find("GATE02").GetComponent<GateOpen>();
+
+        DustEffect.SetActive(false);
 
         _level = Prototype.NetworkLobby.LobbyMainMenu.ReturnLevel();
         if (_level == LEVEL.LV_SUPER) kusomuzu_flg = true;
@@ -261,6 +264,11 @@ public class NetWorkEDO : NetworkBehaviour
             }
         }
     }
+    public void RecoveryHit()
+    {
+        Instantiate(RecoveryEffect, new Vector3(player.position.x, player.position.y + 1.0f, player.position.z), new Quaternion(0, 0, 0, 0));
+    }
+
 
     public void StarIncrement()
     {
