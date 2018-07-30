@@ -97,28 +97,28 @@ public class NetWorkEDO : NetworkBehaviour
         waitTime++;
         velocity = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) {
-            DustEffect.SetActive(true);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.z += .2f;
             animator.SetFloat("walk", velocity.magnitude);
         }
         if (Input.GetKey(KeyCode.A)) {
-            DustEffect.SetActive(true);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.x -= .2f;
             animator.SetFloat("walk", velocity.magnitude);
         }
         if (Input.GetKey(KeyCode.S)) {
-            DustEffect.SetActive(true);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.z -= .2f;
             animator.SetFloat("walk", velocity.magnitude);
         }
         if (Input.GetKey(KeyCode.D)) {
-            DustEffect.SetActive(true);
-            animator.SetFloat("walk", velocity.magnitude);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.x += .2f;
+            animator.SetFloat("walk", velocity.magnitude);
         }
 
         if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A)&& !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
@@ -139,10 +139,12 @@ public class NetWorkEDO : NetworkBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             playerSpeed = .1f;
+            DustEffect.SetActive(true);
             animator.SetFloat("Speed", velocity.magnitude);
         }
         else
         {
+            DustEffect.SetActive(false);
             animator.SetFloat("Speed", 0f);
         }
 
