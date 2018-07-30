@@ -14,7 +14,8 @@ public enum LEVEL : int
     LV_EASY,    //ä»íP
     LV_NORMAL,  //ïÅí 
     LV_HARD,    //ìÔÇµÇ¢
-    LV_SUPER    //Ç≠ÇªÇﬁÇ∏
+    LV_SUPER,   //Ç≠ÇªÇﬁÇ∏
+    LV_NIGHTMARE//ÉèÉCêÍ
 }
 
 namespace Prototype.NetworkLobby

@@ -1522,7 +1522,7 @@ MonoBehaviour:
   stamina: {fileID: 0}
   hp: 0
   getStar: 0
-  hitEffect: {fileID: 1312748452310618, guid: dd9359a2e3148464c8b206cd8e3a7f58, type: 2}
+  hitEffect: {fileID: 1120571358774740, guid: 6b2a55658729e3d4686159a7e239d7b8, type: 2}
   score: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   playerName: 

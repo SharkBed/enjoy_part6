@@ -10,6 +10,7 @@ public class SeachPlayer : MonoBehaviour {
     public int destPoint;
     private NavMeshAgent agent;
     public Transform player;
+    bool playerAlive;
 
     public LEVEL _level;
 
@@ -18,14 +19,14 @@ public class SeachPlayer : MonoBehaviour {
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
         GotoNextPoint();
-
+        playerAlive = true;
         player = GameObject.Find("PlayerLOD0 5(Clone)").GetComponent<Transform>();
 
         _level = Prototype.NetworkLobby.LobbyMainMenu.ReturnLevel();
         if (_level == LEVEL.LV_EASY) agent.speed = 9;
         if (_level == LEVEL.LV_NORMAL) agent.speed = 10;
         if (_level == LEVEL.LV_HARD) agent.speed = 11;
-        if (_level == LEVEL.LV_SUPER) {
+        if (_level == LEVEL.LV_SUPER || _level == LEVEL.LV_NIGHTMARE) {
             agent.speed = 12;
             agent.acceleration += 2;
         }
@@ -45,12 +46,12 @@ public class SeachPlayer : MonoBehaviour {
     }
 
     void OnTriggerStay(Collider col){
-        if(col.tag == "Player") {  //見つけたお！
+        if (!playerAlive) return;
+        if (col.tag == "Player") {  //見つけたお！
 
             if (!Physics.Linecast(transform.position + Vector3.up, col.gameObject.transform.position + Vector3.up, LayerMask.GetMask("Field"))){
                 agent.SetDestination(player.position);
-
-                notificationTime = 2;
+                notificationTime += 2;
             }
         }
     }
@@ -64,15 +65,26 @@ public class SeachPlayer : MonoBehaviour {
             GotoNextPoint();
         }
 
-        if(notificationTime > 0) {
+        if(notificationTime >= 0) {
             notificationTime--;
         }
     }
 
     public void Notification()
     {
-        notificationTime = 100;
+        notificationTime = 150;
         agent.SetDestination(player.position);
         destPoint = (destPoint + Random.Range(1, (points.Length - 1))) % points.Length;
+    }
+
+    public void SpeedUp()
+    {
+        agent.speed += 1;
+        agent.acceleration += 1.2f;
+    }
+
+    public void PlayerDead()
+    {
+        playerAlive = false;
     }
 }

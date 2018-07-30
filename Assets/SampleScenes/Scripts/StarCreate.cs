@@ -30,6 +30,9 @@ public class StarCreate : MonoBehaviour {
             case LEVEL.LV_SUPER:
                 LevelCon(60);
                 break;
+            case LEVEL.LV_NIGHTMARE:
+                LevelCon(30);
+                break;
             case LEVEL.LV_NON:
                 break;
         }
@@ -41,6 +44,14 @@ public class StarCreate : MonoBehaviour {
     {
         for (int i = 0; i < a; i += 5) {
             Instantiate(original, objs[i + Random.Range(0, 5)].transform.position, new Quaternion(0, 0, 0, 0));
+        }
+    }
+    public void LevelCon2()
+    {
+        for (int i = 0; i < 50; i += 5) {
+            int rnd = Random.Range(0, 5);
+            Instantiate(original, objs[i + rnd].transform.position, new Quaternion(0, 0, 0, 0));
+            Instantiate(original, objs[i + (rnd + Random.Range(1, 5)) % 5].transform.position, new Quaternion(0, 0, 0, 0));
         }
     }
 
