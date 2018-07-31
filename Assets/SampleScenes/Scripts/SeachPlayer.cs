@@ -51,7 +51,7 @@ public class SeachPlayer : MonoBehaviour {
 
             if (!Physics.Linecast(transform.position + Vector3.up, col.gameObject.transform.position + Vector3.up, LayerMask.GetMask("Field"))){
                 agent.SetDestination(player.position);
-                notificationTime += 2;
+                notificationTime = 2;
             }
         }
     }

@@ -306,7 +306,7 @@ public class NetWorkEDO : NetworkBehaviour
         _scoreText.alignment = TextAnchor.MiddleCenter;
         _scoreText.font = NetworkGameManager.sInstance.uiScoreFont;
         //_scoreText.resizeTextForBestFit = true;
-        _scoreText.fontSize = 30;
+        _scoreText.fontSize = 50;
         _scoreText.color = Color.white;
         _wasInit = true;
 
