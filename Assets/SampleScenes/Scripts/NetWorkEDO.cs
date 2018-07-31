@@ -8,6 +8,7 @@ public class NetWorkEDO : NetworkBehaviour
 {
     private Vector3 velocity;
 
+    private Animator animator;
     private CharacterController characterController;    //未使用？
     public Transform player;
     public SeachPlayer e;
@@ -62,7 +63,7 @@ public class NetWorkEDO : NetworkBehaviour
         e = GameObject.Find("Dragon").GetComponent<SeachPlayer>();
         g1 = GameObject.Find("GATE01").GetComponent<GateOpen>();
         g2 = GameObject.Find("GATE02").GetComponent<GateOpen>();
-
+        animator = GetComponent<Animator>();
         DustEffect.SetActive(false);
 
         _level = Prototype.NetworkLobby.LobbyMainMenu.ReturnLevel();
@@ -90,33 +91,39 @@ public class NetWorkEDO : NetworkBehaviour
             }
             return;
         }
+        animator.SetFloat("walk", .0f);
 
         speedScale = 1.0f;
         waitTime++;
         velocity = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) {
-            DustEffect.SetActive(true);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.z += .2f;
+            animator.SetFloat("walk", velocity.magnitude);
         }
         if (Input.GetKey(KeyCode.A)) {
-            DustEffect.SetActive(true);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.x -= .2f;
+            animator.SetFloat("walk", velocity.magnitude);
         }
         if (Input.GetKey(KeyCode.S)) {
-            DustEffect.SetActive(true);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.z -= .2f;
+            animator.SetFloat("walk", velocity.magnitude);
         }
         if (Input.GetKey(KeyCode.D)) {
-            DustEffect.SetActive(true);
+            //DustEffect.SetActive(true);
             waitTime = 0;
             velocity.x += .2f;
+            animator.SetFloat("walk", velocity.magnitude);
         }
 
         if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A)&& !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
         {
+            animator.SetFloat("walk", .0f);
             DustEffect.SetActive(false);
         }
 
@@ -132,7 +139,13 @@ public class NetWorkEDO : NetworkBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             playerSpeed = .1f;
-
+            DustEffect.SetActive(true);
+            animator.SetFloat("Speed", velocity.magnitude);
+        }
+        else
+        {
+            DustEffect.SetActive(false);
+            animator.SetFloat("Speed", 0f);
         }
 
         if (Input.GetKey(KeyCode.Space))
@@ -293,7 +306,7 @@ public class NetWorkEDO : NetworkBehaviour
         _scoreText.alignment = TextAnchor.MiddleCenter;
         _scoreText.font = NetworkGameManager.sInstance.uiScoreFont;
         //_scoreText.resizeTextForBestFit = true;
-        _scoreText.fontSize = 30;
+        _scoreText.fontSize = 50;
         _scoreText.color = Color.white;
         _wasInit = true;
 
