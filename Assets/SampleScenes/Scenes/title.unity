@@ -24515,7 +24515,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Escape  Doragon
+  m_Text: Escape  Dragon
 --- !u!222 &667620588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33456,8 +33456,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 988614024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 520, y: 204.5, z: 0}
-  m_LocalScale: {x: 0.3787037, y: 0.3787037, z: 0.3787037}
+  m_LocalPosition: {x: 465.5, y: 205, z: 0}
+  m_LocalScale: {x: 0.37962964, y: 0.37962964, z: 0.37962964}
   m_Children:
   - {fileID: 227174505}
   - {fileID: 1599717191}
@@ -57961,7 +57961,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Escape  Doragon
+  m_Text: Escape  Dragon
 --- !u!222 &1599717193
 CanvasRenderer:
   m_ObjectHideFlags: 0
