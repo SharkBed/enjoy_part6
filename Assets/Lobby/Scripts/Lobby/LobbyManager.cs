@@ -47,6 +47,7 @@ namespace Prototype.NetworkLobby
         protected RectTransform currentPanel;
 
         public Button backButton;
+        public Button TitleButton;
 
         bool soloPlayerFlag = false;
 
@@ -79,6 +80,7 @@ namespace Prototype.NetworkLobby
             currentPlayers = new Dictionary<int, int>();
 
             backButton.gameObject.SetActive(false);
+            TitleButton.gameObject.SetActive(true);
             GetComponent<Canvas>().enabled = true;
 
             DontDestroyOnLoad(gameObject);
@@ -154,10 +156,12 @@ namespace Prototype.NetworkLobby
             if (currentPanel != mainMenuPanel)
             {
                 backButton.gameObject.SetActive(true);
+                TitleButton.gameObject.SetActive(true);
             }
             else
             {
                 backButton.gameObject.SetActive(false);
+                //TitleButton.gameObject.SetActive(false);
                 SetServerInfo("Offline", "None");
                 _isMatchmaking = false;
             }
@@ -192,6 +196,14 @@ namespace Prototype.NetworkLobby
             backDelegate();
 			topPanel.isInGame = false;
         }
+
+        public void GoTitleButton()
+        {
+            //backDelegate();
+            topPanel.isInGame = false;
+            SceneManager.LoadScene("title");
+        }
+
 
         public void GoSoloPlayButton()
         {
