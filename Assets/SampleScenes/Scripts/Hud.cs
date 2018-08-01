@@ -39,6 +39,7 @@ public class Hud : MonoBehaviour
         else
         {
             gameTime.text = ((int)remainingTime).ToString();
+            gameTime.fontSize = 50;
         }
     }
     public void SetLevel()

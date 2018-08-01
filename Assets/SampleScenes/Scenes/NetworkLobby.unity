@@ -510,7 +510,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30CE\u30FC\u30DE\u30EB"
+  m_Text: NORMAL
 --- !u!222 &825826236
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -661,7 +661,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 0
-  m_Text: "1\u4EBA\u30D7\u30EC\u30A4"
+  m_Text: SINGLE PLAY
 --- !u!222 &1264306165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -736,7 +736,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30A4\u30FC\u30B8\u30FC"
+  m_Text: EASY
 --- !u!222 &1266589043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -815,7 +815,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30D9\u30EA\u30FC\u30CF\u30FC\u30C9"
+  m_Text: VERY HARD
 --- !u!222 &1370647106
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -839,11 +839,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22459552, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 443
+      value: 457.5
       objectReference: {fileID: 0}
     - target: {fileID: 22459552, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 193.5
+      value: 204
       objectReference: {fileID: 0}
     - target: {fileID: 22459552, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -985,7 +985,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11439030, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_Text
-      value: "\u901A\u4FE1\u30D7\u30EC\u30A4"
+      value: NETWORK PLAY
       objectReference: {fileID: 0}
     - target: {fileID: 11461806, guid: c0978251ff7b10d4fb954a4b56acd9f0, type: 2}
       propertyPath: m_Text
@@ -1532,7 +1532,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30CF\u30FC\u30C9"
+  m_Text: HARD
 --- !u!222 &2013764518
 CanvasRenderer:
   m_ObjectHideFlags: 0
